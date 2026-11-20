@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SplitMate</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <header class="main-header">
+        <h1>SplitMate<span></span></h1>
+        <p>Divide gastos. Comparte momentos.</p>
+      </header>
+
+      <section class="welcome-card">
+        <h2>Organizá tus gastos grupales</h2>
+
+        <p>
+          Creá el grupo, invitá a los participantes y empezá a dividir gastos de
+          manera sencilla.
+        </p>
+
+        <form class="group-form">
+          <label for="group-name">Nombre del grupo</label>
+
+          <input
+            type="text"
+            id="group-name"
+            placeholder="Ej: Viaje a Mallorca"
+          />
+
+          <button type="submit">Crear grupo</button>
+        </form>
+      </section>
+      <section class="groups-section">
+        <h2>Mis grupos</h2>
+
+        <div id="groups-list"></div>
+        <p class="empty-message">Todavía no tenés grupos creados.</p>
+      </section>
+    </main>
+    <script src="src/main.js"></script>
+  </body>
+</html>

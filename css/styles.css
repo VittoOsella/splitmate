@@ -1,0 +1,147 @@
+/* ESTILOS GENERALES */
+
+body {
+  background-color: #080d18;
+  color: #e8f0fa;
+  font-family: Arial, sans-serif;
+}
+
+/* ESTRUCTURA PRINCIPAL */
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+/* ENCABEZADO */
+
+.main-header {
+  margin-bottom: 50px;
+}
+
+.main-header h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.main-header h1 span {
+  color: #45b8e8;
+}
+
+.main-header p {
+  color: #8fa3ba;
+  font-size: 16px;
+}
+
+/* TARJETA DE BIENVENIDA */
+
+.welcome-card {
+  background-color: #111c2e;
+  border: 1px solid #23334a;
+  border-radius: 12px;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+.welcome-card h2 {
+  color: #e8f0fa;
+  font-size: 24px;
+  margin-top: 0;
+}
+
+.welcome-card p {
+  color: #8fa3ba;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.welcome-card button {
+  background-color: #45b8e8;
+  color: #080d18;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.welcome-card button:hover {
+  transition: 0.3s ease;
+  background-color: #a5ddf5;
+  transform: translateY(-2px);
+}
+/* EFECTO HOVER DEL BOTÓN */
+
+.welcome-card button:hover {
+  background-color: #a5ddf5;
+  transform: translateY(-2px);
+}
+
+/* FORMULARIO DE GRUPOS */
+
+.group-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 25px;
+  max-width: 400px;
+}
+
+.group-form label {
+  color: #e8f0fa;
+  font-size: 14px;
+}
+
+.group-form input {
+  background-color: #080d18;
+  border: 1px solid #23334a;
+  border-radius: 6px;
+  padding: 12px;
+  color: #e8f0fa;
+  font-size: 14px;
+  outline: none;
+}
+
+.group-form input:focus {
+  border-color: #45b8e8;
+}
+
+.group-form button {
+  background-color: #45b8e8;
+  color: #080d18;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.group-form button:hover {
+  background-color: #a5ddf5;
+  transform: translateY(-2px);
+}
+
+/* TARJETAS DE GRUPOS */
+
+.group-item {
+  background-color: #080d18;
+  border: 1px solid #23334a;
+  border-radius: 8px;
+  padding: 18px;
+  margin-top: 12px;
+  color: #e8f0fa;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.group-item:hover {
+  border-color: #45b8e8;
+  transform: translateY(-2px);
+}
