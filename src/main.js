@@ -24,6 +24,13 @@ groupForm.addEventListener("submit", function (event) {
     alert("Por favor, ingresá un nombre para el grupo");
     return;
   }
+  const groupExists = groups.some(function (existingGroup) {
+    return existingGroup.toLowerCase() === groupName.toLowerCase();
+  });
+  if (groupExists) {
+    alert("Ya existe un grupo con ese nombre");
+    return;
+  }
   console.log("Nombre del grupo:", groupName);
   console.log("Se intentó crear un grupo con el nombre:", groupName);
   groups.push(groupName);
