@@ -62,10 +62,4 @@ Publicación: GitHub, README profesional, capturas, publicar la app y enlazarla 
 Segunda etapa: backend para compartir grupos entre dispositivos mediante enlaces (LocalStorage solo guarda en un navegador). Más adelante, quizá con autenticación.
 
 Dónde lo dejamos (actualizar al avanzar)
-Fase 1. renderGroups() ya está TERMINADO: es la única función que pinta los grupos, muestra u oculta el mensaje vacío y el formulario solo guarda y llama a renderGroups(). Probado y funcionando.
-
-Ahora: empezar con Git (repositorio local, primer commit y después subir a GitHub).
-
-Después, seguir con la fase 1: evitar grupos con nombres repetidos, eliminar grupos y abrir un grupo al hacer clic.
-
-Limpiezas pendientes (no urgentes): en main.js, quitar el .trim() repetido del if y los dos console.log de prueba.
+Git y GitHub listos: repositorio en https://github.com/VittoOsella/splitmate (rama main). Ciclo: git add . → git commit -m "..." → git push.
