@@ -13,33 +13,42 @@
         <h1>SplitMate<span></span></h1>
         <p>Divide gastos. Comparte momentos.</p>
       </header>
+      <div id="home-view">
+        <section class="welcome-card">
+          <h2>Organizá tus gastos grupales</h2>
 
-      <section class="welcome-card">
-        <h2>Organizá tus gastos grupales</h2>
+          <p>
+            Creá el grupo, invitá a los participantes y empezá a dividir gastos
+            de manera sencilla.
+          </p>
 
-        <p>
-          Creá el grupo, invitá a los participantes y empezá a dividir gastos de
-          manera sencilla.
+          <form class="group-form">
+            <label for="group-name">Nombre del grupo</label>
+
+            <input
+              type="text"
+              id="group-name"
+              placeholder="Ej: Viaje a Mallorca"
+            />
+
+            <button type="submit">Crear grupo</button>
+          </form>
+        </section>
+        <section class="groups-section">
+          <h2>Mis grupos</h2>
+
+          <div id="groups-list"></div>
+          <p class="empty-message">Todavía no tenés grupos creados.</p>
+        </section>
+      </div>
+
+      <div id="group-view" hidden>
+        <button id="back-button">← Volver</button>
+        <h2 id="group-title"></h2>
+        <p class="group-placeholder">
+          Aquí irán los participantes y los gastos.
         </p>
-
-        <form class="group-form">
-          <label for="group-name">Nombre del grupo</label>
-
-          <input
-            type="text"
-            id="group-name"
-            placeholder="Ej: Viaje a Mallorca"
-          />
-
-          <button type="submit">Crear grupo</button>
-        </form>
-      </section>
-      <section class="groups-section">
-        <h2>Mis grupos</h2>
-
-        <div id="groups-list"></div>
-        <p class="empty-message">Todavía no tenés grupos creados.</p>
-      </section>
+      </div>
     </main>
     <script src="src/main.js"></script>
   </body>

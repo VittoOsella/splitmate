@@ -2,6 +2,10 @@ console.log("SplitMate está funcionando");
 const groupForm = document.querySelector(".group-form");
 const groupsList = document.querySelector("#groups-list");
 const emptyMessage = document.querySelector(".empty-message");
+const homeView = document.querySelector("#home-view");
+const groupView = document.querySelector("#group-view");
+const groupTitle = document.querySelector("#group-title");
+const backButton = document.querySelector("#back-button");
 let groups = [];
 function renderGroups() {
   groupsList.innerHTML = "";
@@ -15,7 +19,8 @@ function renderGroups() {
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Eliminar";
     deleteButton.classList.add("delete-button");
-    deleteButton.addEventListener("click", function () {
+    deleteButton.addEventListener("click", function (event) {
+      event.stopPropagation();
       const confirmDelete = confirm("¿Seguro que querés eliminar este grupo?");
 
       if (!confirmDelete) {
@@ -25,11 +30,25 @@ function renderGroups() {
       localStorage.setItem("groups", JSON.stringify(groups));
       renderGroups();
     });
+    groupElement.addEventListener("click", function () {
+      openGroup(group);
+    });
 
     groupElement.appendChild(deleteButton);
     groupsList.appendChild(groupElement);
   });
 }
+
+function openGroup(group) {
+  groupTitle.textContent = group.name;
+  homeView.hidden = true;
+  groupView.hidden = false;
+}
+
+backButton.addEventListener("click", function () {
+  groupView.hidden = true;
+  homeView.hidden = false;
+});
 groups = JSON.parse(localStorage.getItem("groups")) || [];
 groupForm.addEventListener("submit", function (event) {
   event.preventDefault();
