@@ -7,10 +7,10 @@ function renderGroups() {
   groupsList.innerHTML = "";
   emptyMessage.style.display = groups.length === 0 ? "block" : "none";
 
-  groups.forEach(function (groupName, index) {
+  groups.forEach(function (group, index) {
     const groupElement = document.createElement("div");
 
-    groupElement.textContent = groupName;
+    groupElement.textContent = group.name;
     groupElement.classList.add("group-item");
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Eliminar";
@@ -39,7 +39,7 @@ groupForm.addEventListener("submit", function (event) {
     return;
   }
   const groupExists = groups.some(function (existingGroup) {
-    return existingGroup.toLowerCase() === groupName.toLowerCase();
+    return existingGroup.name.toLowerCase() === groupName.toLowerCase();
   });
   if (groupExists) {
     alert("Ya existe un grupo con ese nombre");
@@ -47,7 +47,13 @@ groupForm.addEventListener("submit", function (event) {
   }
   console.log("Nombre del grupo:", groupName);
   console.log("Se intentó crear un grupo con el nombre:", groupName);
-  groups.push(groupName);
+  const newGroup = {
+    id: Date.now(),
+    name: groupName,
+    participants: [],
+  };
+
+  groups.push(newGroup);
 
   localStorage.setItem("groups", JSON.stringify(groups));
   groupForm.reset();

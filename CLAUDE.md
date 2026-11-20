@@ -63,3 +63,10 @@ Segunda etapa: backend para compartir grupos entre dispositivos mediante enlaces
 
 Dónde lo dejamos (actualizar al avanzar)
 Git y GitHub listos: repositorio en https://github.com/VittoOsella/splitmate (rama main). Ciclo: git add . → git commit -m "..." → git push.
+Decisiones técnicas (para el documento final de entrevista)
+
+- Una sola fuente de verdad: el array groups manda y renderGroups() pinta la pantalla a partir de él.
+- Nombres de grupo sin repetir, ignorando mayúsculas (some + toLowerCase).
+- Borrar con confirm(), para evitar borrados accidentales.
+- Rojo suave (#e86a6a) solo para acciones de borrar, por convención.
+- Grupos como objetos con id, en vez de textos, porque cada grupo necesitará participantes y gastos.
