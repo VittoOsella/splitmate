@@ -7,12 +7,26 @@ function renderGroups() {
   groupsList.innerHTML = "";
   emptyMessage.style.display = groups.length === 0 ? "block" : "none";
 
-  groups.forEach(function (groupName) {
+  groups.forEach(function (groupName, index) {
     const groupElement = document.createElement("div");
 
     groupElement.textContent = groupName;
     groupElement.classList.add("group-item");
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Eliminar";
+    deleteButton.classList.add("delete-button");
+    deleteButton.addEventListener("click", function () {
+      const confirmDelete = confirm("¿Seguro que querés eliminar este grupo?");
 
+      if (!confirmDelete) {
+        return;
+      }
+      groups.splice(index, 1);
+      localStorage.setItem("groups", JSON.stringify(groups));
+      renderGroups();
+    });
+
+    groupElement.appendChild(deleteButton);
     groupsList.appendChild(groupElement);
   });
 }
