@@ -48,11 +48,31 @@ function renderParticipants() {
   participantsEmpty.style.display =
     currentGroup.participants.length === 0 ? "block" : "none";
 
-  currentGroup.participants.forEach(function (participant) {
+  currentGroup.participants.forEach(function (participant, index) {
     const participantElement = document.createElement("div");
 
     participantElement.textContent = participant.name;
     participantElement.classList.add("participant-item");
+
+    const deleteParticipantButton = document.createElement("button");
+    deleteParticipantButton.textContent = "Eliminar";
+    deleteParticipantButton.classList.add("delete-button");
+
+    deleteParticipantButton.addEventListener("click", function () {
+      const confirmDelete = confirm(
+        "¿Seguro que querés eliminar a " + participant.name + "?",
+      );
+
+      if (!confirmDelete) {
+        return;
+      }
+
+      currentGroup.participants.splice(index, 1);
+      localStorage.setItem("groups", JSON.stringify(groups));
+      renderParticipants();
+    });
+
+    participantElement.appendChild(deleteParticipantButton);
 
     participantsList.appendChild(participantElement);
   });
