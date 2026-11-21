@@ -7,6 +7,8 @@ const groupView = document.querySelector("#group-view");
 const groupTitle = document.querySelector("#group-title");
 const backButton = document.querySelector("#back-button");
 let groups = [];
+const participantForm = document.querySelector(".participant-form");
+let currentGroup = null;
 function renderGroups() {
   groupsList.innerHTML = "";
   emptyMessage.style.display = groups.length === 0 ? "block" : "none";
@@ -40,6 +42,7 @@ function renderGroups() {
 }
 
 function openGroup(group) {
+  currentGroup = group;
   groupTitle.textContent = group.name;
   homeView.hidden = true;
   groupView.hidden = false;
@@ -79,3 +82,20 @@ groupForm.addEventListener("submit", function (event) {
   renderGroups();
 });
 renderGroups();
+participantForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const participantName = document
+    .querySelector("#participant-name")
+    .value.trim();
+
+  const newParticipant = {
+    id: Date.now(),
+    name: participantName,
+  };
+
+  currentGroup.participants.push(newParticipant);
+  localStorage.setItem("groups", JSON.stringify(groups));
+  participantForm.reset();
+
+  console.log("Participantes de", currentGroup.name, currentGroup.participants);
+});

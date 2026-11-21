@@ -45,9 +45,17 @@
       <div id="group-view" hidden>
         <button id="back-button">← Volver</button>
         <h2 id="group-title"></h2>
-        <p class="group-placeholder">
-          Aquí irán los participantes y los gastos.
-        </p>
+        <section class="participants-section">
+          <h3>Participantes</h3>
+
+          <form class="participant-form">
+            <input type="text" id="participant-name" placeholder="Ej: Marcos" />
+            <button type="submit">Añadir</button>
+          </form>
+
+          <div id="participants-list"></div>
+          <p class="participants-empty">Todavía no hay participantes.</p>
+        </section>
       </div>
     </main>
     <script src="src/main.js"></script>
