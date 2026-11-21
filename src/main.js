@@ -106,6 +106,24 @@ participantForm.addEventListener("submit", function (event) {
     .querySelector("#participant-name")
     .value.trim();
 
+  if (participantName === "") {
+    alert("Por favor, escribí el nombre del participante");
+    return;
+  }
+
+  const participantExists = currentGroup.participants.some(
+    function (existingParticipant) {
+      return (
+        existingParticipant.name.toLowerCase() === participantName.toLowerCase()
+      );
+    },
+  );
+
+  if (participantExists) {
+    alert("Ese participante ya está en el grupo");
+    return;
+  }
+
   const newParticipant = {
     id: Date.now(),
     name: participantName,
