@@ -62,7 +62,11 @@ Publicación: GitHub, README profesional, capturas, publicar la app y enlazarla 
 Segunda etapa: backend para compartir grupos entre dispositivos mediante enlaces (LocalStorage solo guarda en un navegador). Más adelante, quizá con autenticación.
 
 Dónde lo dejamos (actualizar al avanzar)
-Git y GitHub listos: repositorio en https://github.com/VittoOsella/splitmate (rama main). Ciclo: git add . → git commit -m "..." → git push.
+FASE 1 TERMINADA: crear, evitar duplicados, eliminar (con confirm), grupos como objetos {id, name, participants}, abrir un grupo y volver (misma página, home-view / group-view con hidden). Repositorio: https://github.com/VittoOsella/splitmate (rama main). Ciclo: git add . → git commit -m "..." → git push.
+
+Ahora: FASE 2, participantes dentro de cada grupo.
+
+Limpiezas pendientes (no urgentes): en main.js, quitar el .trim() repetido del if y los dos console.log de prueba; en styles.css, .welcome-card button:hover está repetido.
 Decisiones técnicas (para el documento final de entrevista)
 
 - Una sola fuente de verdad: el array groups manda y renderGroups() pinta la pantalla a partir de él.
@@ -70,3 +74,6 @@ Decisiones técnicas (para el documento final de entrevista)
 - Borrar con confirm(), para evitar borrados accidentales.
 - Rojo suave (#e86a6a) solo para acciones de borrar, por convención.
 - Grupos como objetos con id, en vez de textos, porque cada grupo necesitará participantes y gastos.
+- Una sola página (SPA): home-view y group-view se muestran u ocultan con el atributo hidden; más simple que dos páginas HTML.
+- stopPropagation() en "Eliminar", porque el botón está dentro de la tarjeta y el clic también abría el grupo.
+- Cambios explicados por número de línea y de abajo hacia arriba, para que los números no se muevan.
