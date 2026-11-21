@@ -64,7 +64,7 @@ Segunda etapa: backend para compartir grupos entre dispositivos mediante enlaces
 Dónde lo dejamos (actualizar al avanzar)
 FASE 1 TERMINADA: crear, evitar duplicados, eliminar (con confirm), grupos como objetos {id, name, participants}, abrir un grupo y volver (misma página, home-view / group-view con hidden). Repositorio: https://github.com/VittoOsella/splitmate (rama main). Ciclo: git add . → git commit -m "..." → git push.
 
-Ahora: FASE 2, participantes dentro de cada grupo.
+FASE 2 TERMINADA: añadir, listar y eliminar participantes por grupo, sin vacíos ni repetidos, con estilos. Ahora: FASE 3, registrar gastos.
 
 Limpiezas pendientes (no urgentes): en main.js, quitar el .trim() repetido del if y los dos console.log de prueba; en styles.css, .welcome-card button:hover está repetido.
 Decisiones técnicas (para el documento final de entrevista)
@@ -77,3 +77,6 @@ Decisiones técnicas (para el documento final de entrevista)
 - Una sola página (SPA): home-view y group-view se muestran u ocultan con el atributo hidden; más simple que dos páginas HTML.
 - stopPropagation() en "Eliminar", porque el botón está dentro de la tarjeta y el clic también abría el grupo.
 - Cambios explicados por número de línea y de abajo hacia arriba, para que los números no se muevan.
+- Participantes como objetos {id, name}, para que los gastos apunten a un id y no a un nombre que puede cambiar.
+- currentGroup es una referencia al grupo abierto: al modificarlo se modifica el grupo dentro de groups.
+- CSS compartido con selectores separados por coma (.group-form input, .participant-form input).
