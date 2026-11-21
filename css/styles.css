@@ -98,7 +98,8 @@ body {
   font-size: 14px;
 }
 
-.group-form input {
+.group-form input,
+.participant-form input {
   background-color: #080d18;
   border: 1px solid #23334a;
   border-radius: 6px;
@@ -108,11 +109,13 @@ body {
   outline: none;
 }
 
-.group-form input:focus {
+.group-form input:focus,
+.participant-form input:focus {
   border-color: #45b8e8;
 }
 
-.group-form button {
+.group-form button,
+.participant-form button {
   background-color: #45b8e8;
   color: #080d18;
   border: none;
@@ -123,7 +126,8 @@ body {
   transition: 0.3s ease;
 }
 
-.group-form button:hover {
+.group-form button:hover,
+.participant-form button:hover {
   background-color: #a5ddf5;
   transform: translateY(-2px);
 }
@@ -195,6 +199,35 @@ body {
   margin: 20px 0 10px;
 }
 
-.group-placeholder {
+/* PARTICIPANTES */
+
+.participants-section h3 {
+  font-size: 18px;
+  margin: 30px 0 10px;
+}
+
+.participant-form {
+  display: flex;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.participant-form input {
+  flex: 1;
+}
+
+.participant-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #080d18;
+  border: 1px solid #23334a;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 10px;
+  max-width: 400px;
+}
+
+.participants-empty {
   color: #8fa3ba;
 }
