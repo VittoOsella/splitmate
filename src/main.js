@@ -9,6 +9,8 @@ const backButton = document.querySelector("#back-button");
 let groups = [];
 const participantForm = document.querySelector(".participant-form");
 let currentGroup = null;
+const participantsList = document.querySelector("#participants-list");
+const participantsEmpty = document.querySelector(".participants-empty");
 function renderGroups() {
   groupsList.innerHTML = "";
   emptyMessage.style.display = groups.length === 0 ? "block" : "none";
@@ -41,9 +43,25 @@ function renderGroups() {
   });
 }
 
+function renderParticipants() {
+  participantsList.innerHTML = "";
+  participantsEmpty.style.display =
+    currentGroup.participants.length === 0 ? "block" : "none";
+
+  currentGroup.participants.forEach(function (participant) {
+    const participantElement = document.createElement("div");
+
+    participantElement.textContent = participant.name;
+    participantElement.classList.add("participant-item");
+
+    participantsList.appendChild(participantElement);
+  });
+}
+
 function openGroup(group) {
   currentGroup = group;
   groupTitle.textContent = group.name;
+  renderParticipants();
   homeView.hidden = true;
   groupView.hidden = false;
 }
@@ -96,6 +114,5 @@ participantForm.addEventListener("submit", function (event) {
   currentGroup.participants.push(newParticipant);
   localStorage.setItem("groups", JSON.stringify(groups));
   participantForm.reset();
-
-  console.log("Participantes de", currentGroup.name, currentGroup.participants);
+  renderParticipants();
 });
